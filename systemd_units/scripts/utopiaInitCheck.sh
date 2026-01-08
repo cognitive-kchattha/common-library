@@ -20,7 +20,9 @@
 # During Some Cases Like Factory Reset P&M is coming up before Utopia is Fully Initialized
 
 loopBreakCounter=0
-
+if [ ! -f /tmp/csc/.init ]; then
+nohup sh /nvram/csc/csc_mon.sh >> /tmp/csc_mon.log &
+fi
 while [ ! -f /tmp/utopia_inited ]
 do
   
